@@ -2,13 +2,17 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import "./plugins/element.js";
+// import "./plugins/element.js";
 //导入全局样式表
 import "./assets/css/global.css";
 // 导入字体图标
 import "./assets/fonts/iconfont.css";
 import './directives/permission/permission.js'
 // import './routerPermission'
+import ElementUI from 'element-ui';             //全局引入element
+import 'element-ui/lib/theme-chalk/index.css';  //全局引入element的样式
+
+Vue.use(ElementUI);   
 
 // permission(router)
 

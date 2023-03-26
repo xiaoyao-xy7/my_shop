@@ -7,6 +7,7 @@ import Users from "../components/user/Users.vue";
 import Rights from "../components/power/Rights.vue";
 import Roles from "../components/power/Roles.vue";
 import Commodity from "../components/commodity/index.vue";
+import Classify from "../views/classify/index.vue";
 
 Vue.use(VueRouter);
 
@@ -27,7 +28,8 @@ const router = new VueRouter({
         { path: "/users", component: Users },
         { path: "/rights", component: Rights },
         { path: "/roles", component: Roles },
-        { path: "/goods", component: Commodity }
+        { path: "/goods", component: Commodity },
+        { path: "/params", component: Classify }
       ]
     }
   ]
@@ -35,7 +37,7 @@ const router = new VueRouter({
 
 //挂载路由导航守卫
 router.beforeEach((to, from, next) => {
-  console.log('跳转', to)
+  console.log('跳转a', to)
   //to 将要访问的页面路径
   //from 从哪个页面路径跳转而来的
   //next() 放行函数
@@ -48,9 +50,9 @@ router.beforeEach((to, from, next) => {
   //没有token，强制跳转到登录页
   if (!tokenstr) return next("/login");
   const whiteList = ['/403', '/users', '/roles']
-  if(whiteList.includes(to.path)) {
+  // if(whiteList.includes(to.path)) {
     next();
-  }
+  // }
 });
 
 // const whiteList = ['/403']
